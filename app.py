@@ -248,5 +248,81 @@ demo = gr.Interface(
     ],
 )
 
+examples=[
+        [
+            0.9,
+            0.8,
+            0.99,
+            os.path.join(os.path.dirname(__file__), "examples/test_001.jpg"),
+            "front door",
+        ],
+        [
+            0.9,
+            0.8,
+            0.75,
+            os.path.join(os.path.dirname(__file__), "examples/test_002.jpg"),
+            "front door",
+        ],
+        [
+            0.9,
+            0.8,
+            0.998,
+            os.path.join(os.path.dirname(__file__), "examples/test_002.jpg"),
+            "garage door",
+        ],
+        [
+            0.9,
+            0.8,
+            0.75,
+            os.path.join(os.path.dirname(__file__), "examples/test_003.jpg"),
+            "front door",
+        ],
+        [
+            0.9,
+            0.8,
+            0.99,
+            os.path.join(os.path.dirname(__file__), "examples/test_006.jpg"),
+            "front door",
+        ],
+        [
+            0.9,
+            0.8,
+            0.99,
+            os.path.join(os.path.dirname(__file__), "examples/test_010.jpg"),
+            "garage door",
+        ],
+        [
+            0.9,
+            0.8,
+            0.99,
+            os.path.join(os.path.dirname(__file__), "examples/test_024.jpg"),
+            "front door",
+        ],
+        [
+            0.9,
+            0.8,
+            0.99,
+            os.path.join(os.path.dirname(__file__), "examples/test_026.jpg"),
+            "front door",
+        ],
+        [
+            0.9,
+            0.8,
+            0.99,
+            os.path.join(os.path.dirname(__file__), "examples/test_050.jpg"),
+            "garage door",
+        ],
+        [
+            0.9,
+            0.8,
+            0.99,
+            os.path.join(os.path.dirname(__file__), "examples/test_054.jpg"),
+            "garage door",
+        ],
+    ]
+    
 if __name__ == "__main__":
-    demo.launch()
+    #demo.launch()
+    for e in examples:
+        output = segment(e[0], e[1], e[2], e[3], e[4])
+        output.save(e[3][:-4]+"_"+e[4]+".jpg", format="JPEG")
